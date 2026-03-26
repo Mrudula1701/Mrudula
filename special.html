@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mr. VV 💛</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 400vw;
+            height: 100vh;
+            transition: transform 1s ease;
+        }
+
+        .page {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+        }
+
+        .page:nth-child(1) { background: linear-gradient(to right, #E55D87, #5FC3E4); }
+        .page:nth-child(2) { background: linear-gradient(to right, #DD5E89,#F7BB97); }
+        .page:nth-child(3) { background: linear-gradient(to right, #ED4264,#FFEDBC); }
+        .page:nth-child(4) { background: linear-gradient(to right,#77A1D3, #79CBCA,#E684AE); }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #prev, #next {
+            position: fixed;
+            bottom: 20px;
+            background: black;
+            color: white;
+        }
+
+        #prev { left: 20px; }
+        #next { right: 20px; }
+
+        #finalMsg {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .heart {
+            position: fixed;
+            top: -20px;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-50px); opacity: 1; }
+            100% { transform: translateY(110vh); opacity: 0; }
+        }
+
+        #yesMsg {
+            position: fixed;
+            top: 30%;
+            width: 100%;
+            text-align: center;
+            font-size: 34px;
+            font-weight: bold;
+            font-family: 'Segoe Script', cursive;
+            background: linear-gradient(45deg, #ff4d6d, #ff99aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container" id="slider">
+
+    <!-- Slide 1 -->
+    <div class="page">
+        <h1>Hi Mr. VV 🤍</h1>
+        <p>Wish you many many more happy returns of the day 🎂✨</p>
+        <p>How’s everything going? 😊</p>
+        <p style="position:absolute; bottom:40px;">
+            (I made something just for you… 👉💛)
+        </p>
+    </div>
+
+   <div class="page">
+    <h2>What happened on this day? 🤔</h2>
+
+    <p style="max-width: 600px; margin-top: 15px; line-height: 1.6;">
+     On March 26, 2005, the BBC sci-fi series Doctor Who returned to television after 16 years with Christopher Eccleston as the Ninth Doctor. Simultaneously, hundreds of thousands of people rallied in Taipei to protest China's Anti-Secession Law, and in Egypt, the Al-Azhar Park was inaugurated. 
+Key Events from March 26, 2005:
+Media & Pop Culture: The revived Doctor Who series premiered "Rose" on BBC One, marking a new era for the show.
+International Relations: A massive, largely peaceful demonstration occurred in Taipei, Taiwan, opposing the People's Republic of China's anti-secession law.
+Inauguration: The Aga Khan inaugurated Al-Azhar Park in Cairo, transforming a former landfill into a major public space.
+Health Crisis: The death toll from the Marburg virus outbreak in Angola increased to 120, with cases spreading outside the capital.
+Motorsport: Formula One began its season preparations with the Australian Grand Prix weekend.<br><br>
+
+        (Enti boss nuvu putina tarvata world lo anni evevo changes vachayi anta basically naku kuda em ardam kaledu so nuvu kuda anta ardam chesukovadaniki try cheyaku😅)
+ <p style="
+        position: absolute;
+        right: 20px;
+        bottom: 60px;
+        font-size: 16px;
+        opacity: 0.7;
+    ">
+        inka undi ayipoledu… 😅
+    </p>
+    </p>
+</div>
+    
+
+    <!-- Slide 3 -->
+    <div class="page">
+        <h1 id="dayCount"> 7667days</h1>
+        <p>Nuvu puti exact ga 7667 days ayindi💛Such a big number kada 😄
+   <p>Kani don't worry nuvu anta pedda uncle vi kadu le</p>
+And exactly 3months ago sharanya vallana nenu netho matladam start chesa 26th jan
+And 28th jan roju i gave you my number becoz vizag vela anni 
+Ee 3month slo what's app and insta chusukunte nene ekkuva msgs avvi chesi ante pedda pedda paras avvi peti reels chalane share chesi nee burra tinna😅
+Kani nuvu chala oopikatho unav Thanks for that 
+And nenu chepina prathisodi vinav naku temparory vodu permanat kavali ante 1st vodu annav kani..
+17th mar na nuvu oka reel peti what's app lo naku kuda permenant cheyali ani undi so i want to travel with you annav i felt like i was on the other planent...</p>
+ <p style="
+        position: absolute;
+        right: 20px;
+        bottom: 60px;
+        font-size: 16px;
+        opacity: 0.7;
+    ">sare le edo ala ayipoyindi
+Inkoka vishyam anthe i promise...
+</p>
+</p>
+    </div>
+    <!-- Slide 4 -->
+    <div class="page">
+        <h2>Can I be by your side for the rest of birthdays? 💛</h2>
+
+        <div style="display:flex; gap:20px;">
+            <button onclick="yesClicked()">Yes 😄</button>
+            <button id="noBtn" onclick="noClicked()">No 😜</button>
+        </div>
+
+        <p id="finalMsg">It's okay 😌💛</p>
+    </div>
+
+</div>
+
+<div id="yesMsg">Thank you cutiepiee 💖</div>
+
+<button id="prev" onclick="prevSlide()">⬅</button>
+<button id="next" onclick="nextSlide()">➡</button>
+
+<script>
+let currentIndex = 0;
+const totalSlides = 4;
+const slider = document.getElementById("slider");
+let heartInterval;
+
+function updateSlide() {
+    slider.style.transform = `translateX(-${currentIndex * 100}vw)`;
+
+    document.getElementById("yesMsg").style.display = "none";
+    document.getElementById("finalMsg").style.display = "none";
+    document.getElementById("noBtn").style.display = "inline-block";
+
+    clearInterval(heartInterval);
+    document.querySelectorAll(".heart").forEach(h => h.remove());
+}
+
+function nextSlide() {
+    if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+        updateSlide();
+    }
+}
+
+function prevSlide() {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateSlide();
+    }
+}
+
+function yesClicked() {
+    document.getElementById("yesMsg").style.display = "block";
+
+    heartInterval = setInterval(() => {
+        for (let i = 0; i < 8; i++) {
+            let heart = document.createElement("div");
+            heart.innerHTML = "💖";
+            heart.classList.add("heart");
+
+            heart.style.left = Math.random() * window.innerWidth + "px";
+
+            let size = Math.random() * 25 + 15;
+            heart.style.fontSize = size + "px";
+
+            let duration = Math.random() * 2 + 2;
+            heart.style.animationDuration = duration + "s";
+
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), duration * 1000);
+        }
+    }, 200);
+}
+
+function noClicked() {
+    document.getElementById("yesMsg").style.display = "none";
+
+    clearInterval(heartInterval);
+    document.querySelectorAll(".heart").forEach(h => h.remove());
+
+    document.getElementById("finalMsg").style.display = "block";
+    document.getElementById("noBtn").style.display = "none";
+}
+</script>
+
+</body>
+</html>
